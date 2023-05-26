@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtnj6btoq4xsr"]
+
+[ext_resource type="Script" path="res://src/StackedButton.gd" id="1_17f5x"]
+[ext_resource type="PackedScene" uid="uid://yaw7p6hlvri5" path="res://src/StackedSprite.tscn" id="1_66gad"]
+[ext_resource type="Texture2D" uid="uid://2tmfsha1elta" path="res://sprites/buttons/PlusNormal.png" id="2_go6hq"]
+[ext_resource type="Texture2D" uid="uid://cempw4rws0usl" path="res://sprites/buttons/PlusPressed.png" id="3_odyr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c056g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kc4kx"]
+
+[sub_resource type="Animation" id="Animation_ldwpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StackedSprite:sprite_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yyqsv"]
+resource_name = "sway"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StackedSprite:sprite_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.4, -0.4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_01mba"]
+_data = {
+"RESET": SubResource("Animation_ldwpx"),
+"sway": SubResource("Animation_yyqsv")
+}
+
+[node name="StackedButton" type="Button"]
+offset_right = 16.0
+offset_bottom = 19.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c056g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kc4kx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kc4kx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kc4kx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kc4kx")
+script = ExtResource("1_17f5x")
+texture_normal = ExtResource("2_go6hq")
+texture_pressed = ExtResource("3_odyr6")
+scale_factor = 1.0
+toggle_color = Color(0.764706, 0.764706, 0.764706, 1)
+
+[node name="StackedSprite" parent="." instance=ExtResource("1_66gad")]
+position = Vector2(8, 11)
+texture = ExtResource("2_go6hq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_01mba")
+}
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

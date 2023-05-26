@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://resources/backgrounds/Background.gd" id="1_fioop"]
+[ext_resource type="Texture2D" uid="uid://03hdff1d1fr0" path="res://sprites/backgrounds/Gray.png" id="2_8qckt"]
+
+[resource]
+script = ExtResource("1_fioop")
+name = "Gray"
+texture = ExtResource("2_8qckt")
+zoom_enabled = false
+shadow_color = Color(0, 0, 0, 1)
+disabled_outline_color = Color(1, 1, 1, 0)
+enabled_outline_color = Color(0, 0, 0, 1)

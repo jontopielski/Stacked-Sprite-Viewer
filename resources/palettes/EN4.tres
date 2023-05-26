@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bn7ldvuubch67"]
+
+[ext_resource type="Script" path="res://resources/palettes/Palette.gd" id="1_mjrfx"]
+
+[resource]
+script = ExtResource("1_mjrfx")
+white = Color(0.984314, 0.968627, 0.952941, 1)
+light_gray = Color(0.898039, 0.690196, 0.513726, 1)
+dark_gray = Color(0.258824, 0.431373, 0.364706, 1)
+black = Color(0.12549, 0.156863, 0.239216, 1)

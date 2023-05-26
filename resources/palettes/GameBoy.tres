@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://vwfie23gx4gm"]
+
+[ext_resource type="Script" path="res://resources/palettes/Palette.gd" id="1_tx8mm"]
+
+[resource]
+script = ExtResource("1_tx8mm")
+white = Color(0.607843, 0.737255, 0.0588235, 1)
+light_gray = Color(0.545098, 0.67451, 0.0588235, 1)
+dark_gray = Color(0.188235, 0.384314, 0.188235, 1)
+black = Color(0.0588235, 0.219608, 0.0588235, 1)

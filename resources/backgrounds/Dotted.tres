@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bkxqikt6nr0ru"]
+
+[ext_resource type="Script" path="res://resources/backgrounds/Background.gd" id="1_yat7o"]
+[ext_resource type="Texture2D" uid="uid://bg2yryaau2i8a" path="res://sprites/backgrounds/Dotted.png" id="2_6obbv"]
+
+[resource]
+script = ExtResource("1_yat7o")
+name = "Dotted"
+texture = ExtResource("2_6obbv")
+zoom_enabled = false
+shadow_color = Color(0, 0, 0, 1)
+disabled_outline_color = Color(1, 1, 1, 0)
+enabled_outline_color = Color(0, 0, 0, 1)

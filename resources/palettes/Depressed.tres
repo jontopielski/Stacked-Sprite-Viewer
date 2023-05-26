@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bw11qt7hog4a2"]
+
+[ext_resource type="Script" path="res://resources/palettes/Palette.gd" id="1_swew6"]
+
+[resource]
+script = ExtResource("1_swew6")
+white = Color(0.901961, 0.901961, 0.87451, 1)
+light_gray = Color(0.490196, 0.584314, 0.6, 1)
+dark_gray = Color(0.282353, 0.321569, 0.329412, 1)
+black = Color(0.027451, 0.0588235, 0, 1)

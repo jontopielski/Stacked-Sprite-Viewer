@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d34ert7e0u3dl"]
+
+[ext_resource type="Script" path="res://resources/palettes/Palette.gd" id="1_1pydv"]
+
+[resource]
+script = ExtResource("1_1pydv")
+white = Color(1, 1, 0.780392, 1)
+light_gray = Color(0.831373, 0.596078, 0.290196, 1)
+dark_gray = Color(0.305882, 0.286275, 0.298039, 1)
+black = Color(0, 0.188235, 0.231373, 1)

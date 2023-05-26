@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://cllofjc6x8a2p" path="res://sprites/DitherOffset.png" id="1_o6n8v"]
+
+[resource]
+texture = ExtResource("1_o6n8v")
+expand_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0.254902, 0.254902, 0.254902, 1)

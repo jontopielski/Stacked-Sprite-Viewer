@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=3 uid="uid://md6uphgdqrus"]
+
+[ext_resource type="Script" path="res://src/StackedEdit.gd" id="1_jjstg"]
+[ext_resource type="Texture2D" uid="uid://botdbh3q2u50p" path="res://sprites/buttons/WidthNormal.png" id="3_v2gjj"]
+[ext_resource type="PackedScene" uid="uid://yaw7p6hlvri5" path="res://src/StackedSprite.tscn" id="4_gbh8y"]
+[ext_resource type="FontFile" uid="uid://cbkp1adwafusy" path="res://fonts/Font3x5.ttf" id="4_vprax"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6gvt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhrn4"]
+
+[sub_resource type="Animation" id="Animation_xqx67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StackedSprite:sprite_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LineEdit:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5n66t"]
+resource_name = "sway"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StackedSprite:sprite_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1, -0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LineEdit:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oos0x"]
+_data = {
+"RESET": SubResource("Animation_xqx67"),
+"sway": SubResource("Animation_5n66t")
+}
+
+[node name="StackedEdit" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 76.0
+offset_bottom = 18.0
+script = ExtResource("1_jjstg")
+texture = ExtResource("3_v2gjj")
+frame_width = 76
+
+[node name="StackedSprite" parent="." instance=ExtResource("4_gbh8y")]
+show_behind_parent = true
+position = Vector2(38, 13)
+texture = ExtResource("3_v2gjj")
+frame_width = 76
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 74.0
+offset_bottom = 21.0
+pivot_offset = Vector2(36, 13)
+theme_override_colors/font_color = Color(0.509804, 0.509804, 0.509804, 1)
+theme_override_colors/font_selected_color = Color(0.254902, 0.254902, 0.254902, 1)
+theme_override_colors/caret_color = Color(0.254902, 0.254902, 0.254902, 1)
+theme_override_fonts/font = ExtResource("4_vprax")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b6gvt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yhrn4")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yhrn4")
+text = "16"
+alignment = 2
+max_length = 2
+caret_blink = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oos0x")
+}
+
+[connection signal="focus_exited" from="LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="mouse_entered" from="LineEdit" to="." method="_on_line_edit_mouse_entered"]
+[connection signal="mouse_exited" from="LineEdit" to="." method="_on_line_edit_mouse_exited"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

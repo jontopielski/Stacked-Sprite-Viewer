@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cuxr2qy7mm4jr"]
+
+[ext_resource type="Script" path="res://resources/backgrounds/Background.gd" id="1_t7b8p"]
+[ext_resource type="Texture2D" uid="uid://cncoflco4kuhj" path="res://sprites/backgrounds/Dithered.png" id="2_lgebd"]
+
+[resource]
+script = ExtResource("1_t7b8p")
+name = "Dithered"
+texture = ExtResource("2_lgebd")
+zoom_enabled = false
+shadow_color = Color(0, 0, 0, 1)
+disabled_outline_color = Color(1, 1, 1, 0)
+enabled_outline_color = Color(0, 0, 0, 1)

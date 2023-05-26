@@ -1,0 +1,803 @@
+[gd_scene load_steps=70 format=3 uid="uid://cnhaoy78y3wmi"]
+
+[ext_resource type="Script" path="res://src/Tool.gd" id="1_8r6f8"]
+[ext_resource type="Resource" uid="uid://bkxqikt6nr0ru" path="res://resources/backgrounds/Dotted.tres" id="2_6sniu"]
+[ext_resource type="PackedScene" uid="uid://yaw7p6hlvri5" path="res://src/StackedSprite.tscn" id="2_7qida"]
+[ext_resource type="Texture2D" uid="uid://bg2yryaau2i8a" path="res://sprites/backgrounds/Dotted.png" id="2_23v7a"]
+[ext_resource type="Script" path="res://src/Shadow.gd" id="3_crv6y"]
+[ext_resource type="PackedScene" uid="uid://dtnj6btoq4xsr" path="res://src/StackedButton.tscn" id="3_n5l5n"]
+[ext_resource type="Texture2D" uid="uid://6mxkm8ibc3fo" path="res://sprites/BgDither.png" id="3_qap2k"]
+[ext_resource type="Texture2D" uid="uid://cttm45vge5tie" path="res://sprites/buttons/HintNormal.png" id="4_gtfvn"]
+[ext_resource type="Material" uid="uid://bu7x6h8rahspf" path="res://src/Color.tres" id="4_kr5a8"]
+[ext_resource type="Texture2D" uid="uid://clumq0bpqr768" path="res://sprites/buttons/MinusNormal.png" id="4_nfvav"]
+[ext_resource type="Resource" uid="uid://co2eqb67iudtj" path="res://resources/backgrounds/DitheredZoom.tres" id="4_sh52a"]
+[ext_resource type="Texture2D" uid="uid://dpdkamk6efbh" path="res://sprites/buttons/MinusPressed.png" id="5_a0m7w"]
+[ext_resource type="Resource" path="res://resources/backgrounds/Gray.tres" id="5_pvmet"]
+[ext_resource type="Texture2D" uid="uid://pda6yjoaxoh0" path="res://sprites/buttons/HintPressed.png" id="5_xrcid"]
+[ext_resource type="Resource" path="res://resources/backgrounds/Black.tres" id="6_1vtmu"]
+[ext_resource type="Texture2D" uid="uid://d3kavd0q2ioaq" path="res://sprites/buttons/PixelNormal.png" id="6_x1p3c"]
+[ext_resource type="Texture2D" uid="uid://b08c1dbskds64" path="res://sprites/buttons/PixelPressed.png" id="7_sry4s"]
+[ext_resource type="Resource" uid="uid://j7tyki2yki63" path="res://resources/palettes/Default.tres" id="7_yiyd7"]
+[ext_resource type="Texture2D" uid="uid://38s5okp5k8p2" path="res://sprites/buttons/ListenFileNormal.png" id="8_r3327"]
+[ext_resource type="Texture2D" uid="uid://4tnwgh6q5yu8" path="res://sprites/buttons/SpeedNormal.png" id="8_su88h"]
+[ext_resource type="Texture2D" uid="uid://c0xhynqbfvq1h" path="res://sprites/buttons/ListenFilePressed.png" id="9_7vixo"]
+[ext_resource type="Resource" uid="uid://iedkj0gxs0ot" path="res://resources/palettes/Dustbyte.tres" id="9_8bgb7"]
+[ext_resource type="Texture2D" uid="uid://ct33hpxcndfum" path="res://sprites/buttons/SpeedPressed.png" id="9_f8a1n"]
+[ext_resource type="Resource" uid="uid://71612hydfs86" path="res://resources/palettes/ARQ4.tres" id="10_0poo2"]
+[ext_resource type="Resource" uid="uid://5duilbep0b4e" path="res://resources/palettes/Faded.tres" id="10_ik6af"]
+[ext_resource type="Resource" uid="uid://btay10m1hreok" path="res://resources/palettes/Lava.tres" id="11_ecwju"]
+[ext_resource type="Texture2D" uid="uid://6xg4qasr6c72" path="res://sprites/buttons/BackgroundNormal.png" id="11_erwg4"]
+[ext_resource type="Material" uid="uid://ctris8i5t56d7" path="res://src/ShadowColor.tres" id="12_4h6w5"]
+[ext_resource type="Texture2D" uid="uid://pv6myv6tid5p" path="res://sprites/buttons/BackgroundPressed.png" id="12_7cwob"]
+[ext_resource type="Texture2D" uid="uid://km2i1hwp6pb2" path="res://sprites/buttons/AlwaysOnTopNormal.png" id="13_3fanc"]
+[ext_resource type="Texture2D" uid="uid://b5s4whtsw6mqs" path="res://sprites/buttons/AlwaysOnTopPressed.png" id="14_e5ewn"]
+[ext_resource type="Texture2D" uid="uid://63js7lq537bv" path="res://sprites/buttons/PlayNormal.png" id="15_b3xgh"]
+[ext_resource type="Texture2D" uid="uid://f14jdwipse5d" path="res://sprites/buttons/PauseNormal.png" id="16_3jflc"]
+[ext_resource type="Texture2D" uid="uid://chqrtdn5x3vfn" path="res://sprites/buttons/PausePressed.png" id="16_bvot0"]
+[ext_resource type="Texture2D" uid="uid://ciq2dsqmr2hok" path="res://sprites/buttons/PlayPressed.png" id="17_g3uff"]
+[ext_resource type="Texture2D" uid="uid://bq88u664ufeb5" path="res://sprites/buttons/ExpandNormal.png" id="17_gnk6h"]
+[ext_resource type="Texture2D" uid="uid://dbhx65jq0hptm" path="res://sprites/buttons/LeftArrowNormal.png" id="19_pmx4y"]
+[ext_resource type="Texture2D" uid="uid://dnge4yskmbdo" path="res://sprites/buttons/ExpandPressed.png" id="19_rim30"]
+[ext_resource type="Texture2D" uid="uid://ivnbo1g7g6i5" path="res://sprites/buttons/RightArrowNormal.png" id="20_ko1fi"]
+[ext_resource type="Texture2D" uid="uid://b26x82oqkkfhe" path="res://sprites/buttons/LeftArrowPressed.png" id="20_x0anm"]
+[ext_resource type="Texture2D" uid="uid://bjd3l7u2b73i5" path="res://sprites/buttons/RightArrowPressed.png" id="22_l5k43"]
+[ext_resource type="FontFile" uid="uid://b4f1i24o2a6rr" path="res://fonts/16bfZX.ttf" id="23_h24pl"]
+[ext_resource type="Texture2D" uid="uid://duu6mxifdmaah" path="res://sprites/buttons/OutlineNormal.png" id="23_o1jsl"]
+[ext_resource type="Texture2D" uid="uid://d0rjynmnwklkh" path="res://sprites/buttons/OutlinePressed.png" id="24_mtgnb"]
+[ext_resource type="Texture2D" uid="uid://clfanic47j64i" path="res://sprites/buttons/ShadowNormal.png" id="26_81iyw"]
+[ext_resource type="Texture2D" uid="uid://dyn2fe02vjtio" path="res://sprites/buttons/ShadowPressed.png" id="27_pw4sk"]
+[ext_resource type="Texture2D" uid="uid://ctxjr1xpj3te4" path="res://sprites/buttons/HidePressed.png" id="28_1pi4l"]
+[ext_resource type="Texture2D" uid="uid://bruxjk2vqm13o" path="res://sprites/buttons/HideNormal.png" id="28_oeveo"]
+[ext_resource type="Texture2D" uid="uid://cb0o7uv27ji0w" path="res://sprites/buttons/DimensionsNormal.png" id="29_e2wie"]
+[ext_resource type="Texture2D" uid="uid://dw50wram7l3vg" path="res://sprites/buttons/DimensionsPressed.png" id="30_u3o7k"]
+[ext_resource type="Texture2D" uid="uid://d3e6bvtwudcto" path="res://sprites/buttons/PalettePressed.png" id="31_q1p8s"]
+[ext_resource type="Texture2D" uid="uid://uyf6i2u5thbj" path="res://sprites/buttons/PaletteNormal.png" id="32_y7ny2"]
+[ext_resource type="Material" uid="uid://cnxtwqglsjm13" path="res://src/PaletteSwap.tres" id="39_shh2j"]
+[ext_resource type="Texture2D" uid="uid://dt1auwma06xtt" path="res://sprites/PopupWidthTextureFocus.png" id="40_8wfdh"]
+[ext_resource type="Texture2D" uid="uid://mie50jbk1jq5" path="res://sprites/PopupWidthTexture.png" id="40_30n35"]
+[ext_resource type="Texture2D" uid="uid://cgg4b1fxrgixr" path="res://sprites/PopupWindow.png" id="40_chlso"]
+[ext_resource type="Texture2D" uid="uid://6ah3xbipyl8a" path="res://sprites/PopupTick.png" id="41_kgdls"]
+[ext_resource type="Texture2D" uid="uid://dk0ls7nx4uox2" path="res://sprites/ConfirmButton.png" id="43_dsbsd"]
+[ext_resource type="Texture2D" uid="uid://bsgbvd1s4suby" path="res://sprites/ConfirmPressed.png" id="44_52itq"]
+[ext_resource type="Texture2D" uid="uid://cb4q0vyeudd7l" path="res://sprites/ConfirmHover.png" id="45_6h7ny"]
+[ext_resource type="Texture2D" uid="uid://gfvnt3pu8e7j" path="res://sprites/buttons/OffsetNormal.png" id="48_haqt8"]
+[ext_resource type="Texture2D" uid="uid://c7h2f0x86pdeb" path="res://sprites/buttons/OffsetPressed.png" id="49_tc78t"]
+[ext_resource type="Texture2D" uid="uid://husx3nvcr2wk" path="res://sprites/Help.png" id="50_8jm7x"]
+[ext_resource type="Texture2D" uid="uid://ct01cj0l2vnh" path="res://sprites/Dither.png" id="51_8h2rg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w81jn"]
+bg_color = Color(0.509804, 0.509804, 0.509804, 1)
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj0pl"]
+bg_color = Color(0.509804, 0.509804, 0.509804, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u61n8"]
+texture = ExtResource("40_8wfdh")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qbg7p"]
+texture = ExtResource("40_30n35")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="Theme" id="Theme_nfup2"]
+default_font = ExtResource("23_h24pl")
+LineEdit/colors/caret_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_outline_color = Color(0.764706, 0.764706, 0.764706, 1)
+LineEdit/colors/selection_color = Color(0.509804, 0.509804, 0.509804, 1)
+LineEdit/constants/outline_size = 0
+LineEdit/styles/focus = SubResource("StyleBoxTexture_u61n8")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_qbg7p")
+
+[node name="Tool" type="Control" groups=["Tool"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8r6f8")
+backgrounds = Array[Resource]([ExtResource("5_pvmet"), ExtResource("6_1vtmu"), ExtResource("2_6sniu"), ExtResource("4_sh52a")])
+palettes = Array[Resource]([ExtResource("7_yiyd7"), ExtResource("9_8bgb7"), ExtResource("11_ecwju"), ExtResource("10_0poo2"), ExtResource("10_ik6af")])
+outline_shader = ExtResource("4_kr5a8")
+shadow_shader = ExtResource("12_4h6w5")
+palette_shader = ExtResource("39_shh2j")
+
+[node name="Background" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Background"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(160, 160)
+render_target_update_mode = 4
+
+[node name="Pattern" type="TextureRect" parent="Background/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_23v7a")
+
+[node name="Dither" type="TextureRect" parent="Background/SubViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qap2k")
+stretch_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="Background/SubViewport"]
+position = Vector2(80, 80)
+enabled = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Background/SubViewport"]
+visible = false
+color = Color(0.764706, 0.764706, 0.764706, 1)
+
+[node name="DimensionsBg" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Dither" type="TextureRect" parent="DimensionsBg"]
+self_modulate = Color(0.509804, 0.509804, 0.509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("51_8h2rg")
+stretch_mode = 1
+
+[node name="Stacked" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StackedShadow" parent="Stacked" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(83, 83)
+shader = ExtResource("12_4h6w5")
+y_offset = 0
+
+[node name="Shadow" type="Node2D" parent="Stacked"]
+visible = false
+rotation = -0.698132
+script = ExtResource("3_crv6y")
+color = Color(0.254902, 0.254902, 0.254902, 1)
+
+[node name="StackOutlines" type="Node2D" parent="Stacked"]
+
+[node name="StackedSprite_0" parent="Stacked/StackOutlines" instance=ExtResource("2_7qida")]
+position = Vector2(83, 84)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_1" parent="Stacked/StackOutlines" instance=ExtResource("2_7qida")]
+position = Vector2(83, 82)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_2" parent="Stacked/StackOutlines" instance=ExtResource("2_7qida")]
+position = Vector2(82, 83)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_3" parent="Stacked/StackOutlines" instance=ExtResource("2_7qida")]
+position = Vector2(84, 83)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_4" parent="Stacked/StackOutlines" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(84, 84)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_5" parent="Stacked/StackOutlines" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(82, 84)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_6" parent="Stacked/StackOutlines" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(82, 82)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_7" parent="Stacked/StackOutlines" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(84, 82)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite" parent="Stacked" instance=ExtResource("2_7qida")]
+modulate = Color(0.992157, 0.992157, 0.992157, 1)
+position = Vector2(83, 83)
+
+[node name="PixelatedSprite" type="SubViewportContainer" parent="Stacked"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1440.0
+offset_bottom = 1440.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+metadata/_edit_lock_ = true
+
+[node name="View" type="SubViewport" parent="Stacked/PixelatedSprite"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(1600, 1600)
+render_target_update_mode = 0
+
+[node name="Shadow" type="Node2D" parent="Stacked/PixelatedSprite/View"]
+visible = false
+rotation = -0.698132
+script = ExtResource("3_crv6y")
+color = Color(0.254902, 0.254902, 0.254902, 1)
+
+[node name="StackedShadow" parent="Stacked/PixelatedSprite/View" instance=ExtResource("2_7qida")]
+position = Vector2(8, 16)
+shader = ExtResource("12_4h6w5")
+y_offset = 0
+
+[node name="StackOutlines" type="Node2D" parent="Stacked/PixelatedSprite/View"]
+
+[node name="StackedSprite_0" parent="Stacked/PixelatedSprite/View/StackOutlines" instance=ExtResource("2_7qida")]
+position = Vector2(8, 16)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_1" parent="Stacked/PixelatedSprite/View/StackOutlines" instance=ExtResource("2_7qida")]
+position = Vector2(8, 16)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_2" parent="Stacked/PixelatedSprite/View/StackOutlines" instance=ExtResource("2_7qida")]
+position = Vector2(8, 16)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_3" parent="Stacked/PixelatedSprite/View/StackOutlines" instance=ExtResource("2_7qida")]
+position = Vector2(8, 16)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_4" parent="Stacked/PixelatedSprite/View/StackOutlines" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(8, 16)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_5" parent="Stacked/PixelatedSprite/View/StackOutlines" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(8, 16)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_6" parent="Stacked/PixelatedSprite/View/StackOutlines" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(8, 16)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite_7" parent="Stacked/PixelatedSprite/View/StackOutlines" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(8, 16)
+shader = ExtResource("4_kr5a8")
+
+[node name="StackedSprite" parent="Stacked/PixelatedSprite/View" instance=ExtResource("2_7qida")]
+modulate = Color(0.992157, 0.992157, 0.992157, 1)
+position = Vector2(8, 16)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TopDither" type="TextureRect" parent="UI"]
+visible = false
+modulate = Color(0.509804, 0.509804, 0.509804, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("51_8h2rg")
+stretch_mode = 1
+
+[node name="BotDither" type="TextureRect" parent="UI"]
+visible = false
+modulate = Color(0.509804, 0.509804, 0.509804, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("51_8h2rg")
+stretch_mode = 1
+
+[node name="Instructions" type="Label" parent="UI"]
+visible = false
+offset_left = 4.0
+offset_right = 156.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("23_h24pl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w81jn")
+text = "HELP
+
+1. Drag a horizontal spritesheet .png from a folder into this window.
+
+2. Specify the width and height of a single frame and press confirm.
+
+Everytime a change is made to the original spritesheet file, the stacked sprite will also update."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Bg" type="Panel" parent="UI/Instructions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fj0pl")
+
+[node name="Dither" type="TextureRect" parent="UI/Instructions"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -4.0
+offset_right = 156.0
+offset_bottom = 160.0
+texture = ExtResource("51_8h2rg")
+stretch_mode = 1
+
+[node name="StackedSprite" parent="UI/Instructions" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(82, 24)
+texture = ExtResource("50_8jm7x")
+frame_width = 40
+
+[node name="Help" parent="UI" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+offset_top = 3.0
+offset_bottom = 24.0
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("4_gtfvn")
+texture_pressed = ExtResource("5_xrcid")
+scale_factor = 1.25
+hint_text = "Help"
+
+[node name="Top" type="HBoxContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 3.0
+offset_bottom = 24.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Dimensions" parent="UI/Top" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("29_e2wie")
+texture_pressed = ExtResource("30_u3o7k")
+scale_factor = 1.2
+hint_text = "Dimensions"
+
+[node name="Shadow" parent="UI/Top" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("26_81iyw")
+texture_pressed = ExtResource("27_pw4sk")
+scale_factor = 1.2
+hint_text = "Shadow"
+
+[node name="Outline" parent="UI/Top" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("23_o1jsl")
+texture_pressed = ExtResource("24_mtgnb")
+scale_factor = 1.25
+hint_text = "Outline"
+
+[node name="Pixelate" parent="UI/Top" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("6_x1p3c")
+texture_pressed = ExtResource("7_sry4s")
+scale_factor = 1.225
+hint_text = "Pixelate"
+
+[node name="AlwaysTop" parent="UI/Top" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("13_3fanc")
+texture_pressed = ExtResource("14_e5ewn")
+scale_factor = 1.2
+hint_text = "Always on top"
+
+[node name="Expand" parent="UI/Top" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("17_gnk6h")
+texture_pressed = ExtResource("19_rim30")
+scale_factor = 1.175
+hint_text = "Expand"
+
+[node name="Listen" parent="UI/Top" instance=ExtResource("3_n5l5n")]
+visible = false
+custom_minimum_size = Vector2(18, 21)
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("8_r3327")
+texture_pressed = ExtResource("9_7vixo")
+scale_factor = 1.2
+hint_text = "Listen for file changes"
+
+[node name="Bot" type="HBoxContainer" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -22.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="ZoomOut" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("4_nfvav")
+texture_pressed = ExtResource("5_a0m7w")
+scale_factor = 1.25
+hint_text = "Zoom out"
+
+[node name="ZoomIn" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+scale_factor = 1.25
+hint_text = "Zoom in"
+
+[node name="Speed" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("8_su88h")
+texture_pressed = ExtResource("9_f8a1n")
+scale_factor = 1.25
+hint_text = "Speed"
+
+[node name="Left" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("19_pmx4y")
+texture_pressed = ExtResource("20_x0anm")
+scale_factor = 1.3
+hint_text = "Left"
+
+[node name="Pause" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("16_3jflc")
+texture_pressed = ExtResource("16_bvot0")
+scale_factor = 1.25
+hint_text = "Pause"
+
+[node name="Play" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+visible = false
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("15_b3xgh")
+texture_pressed = ExtResource("17_g3uff")
+scale_factor = 1.25
+hint_text = "Play"
+
+[node name="Right" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("20_ko1fi")
+texture_pressed = ExtResource("22_l5k43")
+scale_factor = 1.3
+hint_text = "Right"
+
+[node name="Background" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("11_erwg4")
+texture_pressed = ExtResource("12_7cwob")
+scale_factor = 1.15
+hint_text = "Background"
+
+[node name="Palette" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+visible = false
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("32_y7ny2")
+texture_pressed = ExtResource("31_q1p8s")
+scale_factor = 1.25
+hint_text = "Palette"
+
+[node name="Hide" parent="UI" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+offset_left = 140.0
+offset_top = 3.0
+offset_right = 156.0
+offset_bottom = 24.0
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("28_oeveo")
+texture_pressed = ExtResource("28_1pi4l")
+scale_factor = 1.275
+hint_text = "Hide"
+
+[node name="Texts" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleShadow" type="Label" parent="UI/Texts"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -54.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.509804, 0.509804, 0.509804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("23_h24pl")
+theme_override_font_sizes/font_size = 16
+text = "Drop spritesheet anytime"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="UI/Texts"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -56.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.764706, 0.764706, 0.764706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("23_h24pl")
+theme_override_font_sizes/font_size = 16
+text = "Drop spritesheet anytime"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TerminalShadow" type="Label" parent="UI/Texts"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 30.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.509804, 0.509804, 0.509804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("23_h24pl")
+theme_override_font_sizes/font_size = 16
+text = "Made by Jon Topielski"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Terminal" type="Label" parent="UI/Texts"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 28.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.764706, 0.764706, 0.764706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("23_h24pl")
+theme_override_font_sizes/font_size = 16
+text = "Made by Jon Topielski"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Dimensions" type="Node2D" parent="UI"]
+visible = false
+
+[node name="MouseBlock" type="Button" parent="UI/Dimensions"]
+offset_right = 160.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PopupWindow" parent="UI/Dimensions" instance=ExtResource("2_7qida")]
+visible = false
+position = Vector2(83, 81)
+texture = ExtResource("40_chlso")
+frame_width = 96
+
+[node name="Width" type="SpinBox" parent="UI/Dimensions"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 21.0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_nfup2")
+theme_override_icons/updown = ExtResource("41_kgdls")
+max_value = 99.0
+value = 16.0
+alignment = 1
+prefix = "Width:"
+select_all_on_focus = true
+
+[node name="Height" type="SpinBox" parent="UI/Dimensions"]
+offset_left = 83.0
+offset_top = 3.0
+offset_right = 158.0
+offset_bottom = 21.0
+theme = SubResource("Theme_nfup2")
+theme_override_icons/updown = ExtResource("41_kgdls")
+max_value = 99.0
+value = 45.0
+alignment = 1
+prefix = "Height:"
+select_all_on_focus = true
+
+[node name="HeightBlock" type="Control" parent="UI/Dimensions"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 83.0
+offset_top = 3.0
+offset_right = 158.0
+offset_bottom = 21.0
+mouse_default_cursor_shape = 8
+
+[node name="Confirm" type="TextureButton" parent="UI/Dimensions"]
+offset_left = 41.0
+offset_top = 139.0
+offset_right = 122.0
+offset_bottom = 157.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("43_dsbsd")
+texture_pressed = ExtResource("44_52itq")
+texture_hover = ExtResource("45_6h7ny")
+
+[node name="Offset" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+offset_left = 4.0
+offset_top = 41.0
+offset_right = 20.0
+offset_bottom = 60.0
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("48_haqt8")
+texture_pressed = ExtResource("49_tc78t")
+hint_text = "Offset"
+
+[node name="Shader" type="ColorRect" parent="UI"]
+material = ExtResource("39_shh2j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[node name="FileListener" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="TitleFadeTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="toggled" from="UI/Help" to="." method="_on_help_toggled"]
+[connection signal="pressed" from="UI/Top/Dimensions" to="." method="_on_dimensions_pressed"]
+[connection signal="pressed" from="UI/Top/Shadow" to="." method="_on_shadow_pressed"]
+[connection signal="toggled" from="UI/Top/Outline" to="." method="_on_outline_toggled"]
+[connection signal="toggled" from="UI/Top/Pixelate" to="." method="_on_pixelate_toggled"]
+[connection signal="toggled" from="UI/Top/AlwaysTop" to="." method="_on_always_top_toggled"]
+[connection signal="pressed" from="UI/Top/Expand" to="." method="_on_expand_pressed"]
+[connection signal="toggled" from="UI/Top/Listen" to="." method="_on_listen_toggled"]
+[connection signal="pressed" from="UI/Bot/ZoomOut" to="." method="_on_zoom_out_pressed"]
+[connection signal="pressed" from="UI/Bot/ZoomIn" to="." method="_on_zoom_in_pressed"]
+[connection signal="toggled" from="UI/Bot/Speed" to="." method="_on_speed_toggled"]
+[connection signal="pressed" from="UI/Bot/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="UI/Bot/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="UI/Bot/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Bot/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="UI/Bot/Background" to="." method="_on_bg_button_pressed"]
+[connection signal="pressed" from="UI/Bot/Palette" to="." method="_on_palette_pressed"]
+[connection signal="toggled" from="UI/Hide" to="." method="_on_hide_toggled"]
+[connection signal="pressed" from="UI/Dimensions/MouseBlock" to="." method="_on_mouse_block_pressed"]
+[connection signal="value_changed" from="UI/Dimensions/Width" to="." method="_on_width_value_changed"]
+[connection signal="pressed" from="UI/Dimensions/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="toggled" from="UI/Dimensions/Offset" to="." method="_on_offset_toggled"]
+[connection signal="timeout" from="FileListener" to="." method="_on_file_listener_timeout"]
