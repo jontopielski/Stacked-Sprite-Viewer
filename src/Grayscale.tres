@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://detfpukqkje7y"]
+
+[sub_resource type="Shader" id="Shader_qoto2"]
+code = "shader_type canvas_item;
+
+bool is_equal_approx(float a, float b) {
+	if (abs(a - b) < 0.01) {
+		return true;
+	}
+	return false;
+}
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	float gray = (color.r + color.g + color.b) / 3.0;
+	if (is_equal_approx(gray, 0.0)) {
+		gray = 0.01;
+	} else if (is_equal_approx(gray, 1.0)) {
+		gray = 0.99;
+	}
+	COLOR.rgb = vec3(gray);
+}
+"
+
+[resource]
+shader = SubResource("Shader_qoto2")

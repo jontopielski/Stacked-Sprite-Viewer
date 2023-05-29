@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c3r1yvhuv4so6"]
 
 [ext_resource type="Script" path="res://resources/backgrounds/Background.gd" id="1_n3dbt"]
 [ext_resource type="Texture2D" uid="uid://dfqamuctlh0bo" path="res://sprites/backgrounds/Black.png" id="2_fevy6"]

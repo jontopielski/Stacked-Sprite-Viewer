@@ -1,9 +1,8 @@
-[gd_scene load_steps=70 format=3 uid="uid://cnhaoy78y3wmi"]
+[gd_scene load_steps=75 format=3 uid="uid://cnhaoy78y3wmi"]
 
 [ext_resource type="Script" path="res://src/Tool.gd" id="1_8r6f8"]
 [ext_resource type="Resource" uid="uid://bkxqikt6nr0ru" path="res://resources/backgrounds/Dotted.tres" id="2_6sniu"]
 [ext_resource type="PackedScene" uid="uid://yaw7p6hlvri5" path="res://src/StackedSprite.tscn" id="2_7qida"]
-[ext_resource type="Texture2D" uid="uid://bg2yryaau2i8a" path="res://sprites/backgrounds/Dotted.png" id="2_23v7a"]
 [ext_resource type="Script" path="res://src/Shadow.gd" id="3_crv6y"]
 [ext_resource type="PackedScene" uid="uid://dtnj6btoq4xsr" path="res://src/StackedButton.tscn" id="3_n5l5n"]
 [ext_resource type="Texture2D" uid="uid://6mxkm8ibc3fo" path="res://sprites/BgDither.png" id="3_qap2k"]
@@ -14,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dpdkamk6efbh" path="res://sprites/buttons/MinusPressed.png" id="5_a0m7w"]
 [ext_resource type="Resource" path="res://resources/backgrounds/Gray.tres" id="5_pvmet"]
 [ext_resource type="Texture2D" uid="uid://pda6yjoaxoh0" path="res://sprites/buttons/HintPressed.png" id="5_xrcid"]
-[ext_resource type="Resource" path="res://resources/backgrounds/Black.tres" id="6_1vtmu"]
+[ext_resource type="Resource" uid="uid://c3r1yvhuv4so6" path="res://resources/backgrounds/Black.tres" id="6_1vtmu"]
 [ext_resource type="Texture2D" uid="uid://d3kavd0q2ioaq" path="res://sprites/buttons/PixelNormal.png" id="6_x1p3c"]
 [ext_resource type="Texture2D" uid="uid://b08c1dbskds64" path="res://sprites/buttons/PixelPressed.png" id="7_sry4s"]
 [ext_resource type="Resource" uid="uid://j7tyki2yki63" path="res://resources/palettes/Default.tres" id="7_yiyd7"]
@@ -23,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://c0xhynqbfvq1h" path="res://sprites/buttons/ListenFilePressed.png" id="9_7vixo"]
 [ext_resource type="Resource" uid="uid://iedkj0gxs0ot" path="res://resources/palettes/Dustbyte.tres" id="9_8bgb7"]
 [ext_resource type="Texture2D" uid="uid://ct33hpxcndfum" path="res://sprites/buttons/SpeedPressed.png" id="9_f8a1n"]
-[ext_resource type="Resource" uid="uid://71612hydfs86" path="res://resources/palettes/ARQ4.tres" id="10_0poo2"]
 [ext_resource type="Resource" uid="uid://5duilbep0b4e" path="res://resources/palettes/Faded.tres" id="10_ik6af"]
 [ext_resource type="Resource" uid="uid://btay10m1hreok" path="res://resources/palettes/Lava.tres" id="11_ecwju"]
 [ext_resource type="Texture2D" uid="uid://6xg4qasr6c72" path="res://sprites/buttons/BackgroundNormal.png" id="11_erwg4"]
@@ -31,11 +29,14 @@
 [ext_resource type="Texture2D" uid="uid://pv6myv6tid5p" path="res://sprites/buttons/BackgroundPressed.png" id="12_7cwob"]
 [ext_resource type="Texture2D" uid="uid://km2i1hwp6pb2" path="res://sprites/buttons/AlwaysOnTopNormal.png" id="13_3fanc"]
 [ext_resource type="Texture2D" uid="uid://b5s4whtsw6mqs" path="res://sprites/buttons/AlwaysOnTopPressed.png" id="14_e5ewn"]
+[ext_resource type="Texture2D" uid="uid://03hdff1d1fr0" path="res://sprites/backgrounds/Gray.png" id="14_kv7vj"]
 [ext_resource type="Texture2D" uid="uid://63js7lq537bv" path="res://sprites/buttons/PlayNormal.png" id="15_b3xgh"]
+[ext_resource type="Material" uid="uid://ohnsur5tyam" path="res://src/BGPaletteSwap.tres" id="15_hldfg"]
 [ext_resource type="Texture2D" uid="uid://f14jdwipse5d" path="res://sprites/buttons/PauseNormal.png" id="16_3jflc"]
 [ext_resource type="Texture2D" uid="uid://chqrtdn5x3vfn" path="res://sprites/buttons/PausePressed.png" id="16_bvot0"]
 [ext_resource type="Texture2D" uid="uid://ciq2dsqmr2hok" path="res://sprites/buttons/PlayPressed.png" id="17_g3uff"]
 [ext_resource type="Texture2D" uid="uid://bq88u664ufeb5" path="res://sprites/buttons/ExpandNormal.png" id="17_gnk6h"]
+[ext_resource type="Material" uid="uid://detfpukqkje7y" path="res://src/Grayscale.tres" id="19_3vwnm"]
 [ext_resource type="Texture2D" uid="uid://dbhx65jq0hptm" path="res://sprites/buttons/LeftArrowNormal.png" id="19_pmx4y"]
 [ext_resource type="Texture2D" uid="uid://dnge4yskmbdo" path="res://sprites/buttons/ExpandPressed.png" id="19_rim30"]
 [ext_resource type="Texture2D" uid="uid://ivnbo1g7g6i5" path="res://sprites/buttons/RightArrowNormal.png" id="20_ko1fi"]
@@ -64,6 +65,10 @@
 [ext_resource type="Texture2D" uid="uid://c7h2f0x86pdeb" path="res://sprites/buttons/OffsetPressed.png" id="49_tc78t"]
 [ext_resource type="Texture2D" uid="uid://husx3nvcr2wk" path="res://sprites/Help.png" id="50_8jm7x"]
 [ext_resource type="Texture2D" uid="uid://ct01cj0l2vnh" path="res://sprites/Dither.png" id="51_8h2rg"]
+[ext_resource type="Texture2D" uid="uid://cqa3y5e2rprs2" path="res://sprites/buttons/GrayscaleNormal.png" id="54_bmj67"]
+[ext_resource type="Texture2D" uid="uid://bob3k1iymrw50" path="res://sprites/buttons/GrayscalePressed.png" id="55_3pjfy"]
+[ext_resource type="Texture2D" uid="uid://1alyl5ya4ucb" path="res://sprites/buttons/GIFNormal.png" id="56_4k7gp"]
+[ext_resource type="Texture2D" uid="uid://q1ow4ixbol6k" path="res://sprites/buttons/GIFPressed.png" id="57_6cd4w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w81jn"]
 bg_color = Color(0.509804, 0.509804, 0.509804, 1)
@@ -106,10 +111,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8r6f8")
 backgrounds = Array[Resource]([ExtResource("5_pvmet"), ExtResource("6_1vtmu"), ExtResource("2_6sniu"), ExtResource("4_sh52a")])
-palettes = Array[Resource]([ExtResource("7_yiyd7"), ExtResource("9_8bgb7"), ExtResource("11_ecwju"), ExtResource("10_0poo2"), ExtResource("10_ik6af")])
+palettes = Array[Resource]([ExtResource("7_yiyd7"), ExtResource("9_8bgb7"), ExtResource("11_ecwju"), ExtResource("10_ik6af")])
 outline_shader = ExtResource("4_kr5a8")
 shadow_shader = ExtResource("12_4h6w5")
 palette_shader = ExtResource("39_shh2j")
+bg_palette_shader = ExtResource("15_hldfg")
+grayscale_shader = ExtResource("19_3vwnm")
 
 [node name="Background" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -132,7 +139,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_23v7a")
+texture = ExtResource("14_kv7vj")
 
 [node name="Dither" type="TextureRect" parent="Background/SubViewport"]
 visible = false
@@ -148,9 +155,19 @@ stretch_mode = 1
 position = Vector2(80, 80)
 enabled = false
 
+[node name="BGShader" type="ColorRect" parent="Background/SubViewport"]
+material = ExtResource("15_hldfg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.533333, 0.533333, 0.533333, 1)
+metadata/_edit_lock_ = true
+
 [node name="CanvasModulate" type="CanvasModulate" parent="Background/SubViewport"]
 visible = false
-color = Color(0.764706, 0.764706, 0.764706, 1)
 
 [node name="DimensionsBg" type="ColorRect" parent="."]
 visible = false
@@ -263,6 +280,7 @@ script = ExtResource("3_crv6y")
 color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [node name="StackedShadow" parent="Stacked/PixelatedSprite/View" instance=ExtResource("2_7qida")]
+visible = false
 position = Vector2(8, 16)
 shader = ExtResource("12_4h6w5")
 y_offset = 0
@@ -308,6 +326,19 @@ shader = ExtResource("4_kr5a8")
 [node name="StackedSprite" parent="Stacked/PixelatedSprite/View" instance=ExtResource("2_7qida")]
 modulate = Color(0.992157, 0.992157, 0.992157, 1)
 position = Vector2(8, 16)
+
+[node name="GrayShader" type="ColorRect" parent="."]
+visible = false
+material = ExtResource("19_3vwnm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.533333, 0.533333, 0.533333, 1)
+metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -398,6 +429,7 @@ texture_normal = ExtResource("4_gtfvn")
 texture_pressed = ExtResource("5_xrcid")
 scale_factor = 1.25
 hint_text = "Help"
+can_press_hotkey_while_window_open = false
 
 [node name="Top" type="HBoxContainer" parent="UI"]
 anchors_preset = 10
@@ -417,15 +449,19 @@ texture_normal = ExtResource("29_e2wie")
 texture_pressed = ExtResource("30_u3o7k")
 scale_factor = 1.2
 hint_text = "Dimensions"
+input_string = "dimensions"
+can_press_hotkey_while_window_open = false
 
 [node name="Shadow" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("26_81iyw")
-texture_pressed = ExtResource("27_pw4sk")
+texture_normal = ExtResource("54_bmj67")
+texture_pressed = ExtResource("55_3pjfy")
 scale_factor = 1.2
 hint_text = "Shadow"
+input_string = "shadow"
+can_press_hotkey_while_window_open = true
 
 [node name="Outline" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -434,8 +470,10 @@ focus_mode = 0
 toggle_mode = true
 texture_normal = ExtResource("23_o1jsl")
 texture_pressed = ExtResource("24_mtgnb")
-scale_factor = 1.25
+scale_factor = 1.2
 hint_text = "Outline"
+input_string = "outline"
+can_press_hotkey_while_window_open = true
 
 [node name="Pixelate" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -446,6 +484,19 @@ texture_normal = ExtResource("6_x1p3c")
 texture_pressed = ExtResource("7_sry4s")
 scale_factor = 1.225
 hint_text = "Pixelate"
+input_string = "pixelate"
+can_press_hotkey_while_window_open = true
+
+[node name="Expand" parent="UI/Top" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("17_gnk6h")
+texture_pressed = ExtResource("19_rim30")
+scale_factor = 1.175
+hint_text = "Expand"
+input_string = "expand"
+can_press_hotkey_while_window_open = true
 
 [node name="AlwaysTop" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -456,15 +507,8 @@ texture_normal = ExtResource("13_3fanc")
 texture_pressed = ExtResource("14_e5ewn")
 scale_factor = 1.2
 hint_text = "Always on top"
-
-[node name="Expand" parent="UI/Top" instance=ExtResource("3_n5l5n")]
-custom_minimum_size = Vector2(16, 19)
-layout_mode = 2
-focus_mode = 0
-texture_normal = ExtResource("17_gnk6h")
-texture_pressed = ExtResource("19_rim30")
-scale_factor = 1.175
-hint_text = "Expand"
+input_string = "always_top"
+can_press_hotkey_while_window_open = false
 
 [node name="Listen" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 visible = false
@@ -476,6 +520,7 @@ texture_normal = ExtResource("8_r3327")
 texture_pressed = ExtResource("9_7vixo")
 scale_factor = 1.2
 hint_text = "Listen for file changes"
+can_press_hotkey_while_window_open = false
 
 [node name="Bot" type="HBoxContainer" parent="UI"]
 anchors_preset = 12
@@ -498,6 +543,8 @@ texture_normal = ExtResource("4_nfvav")
 texture_pressed = ExtResource("5_a0m7w")
 scale_factor = 1.25
 hint_text = "Zoom out"
+input_string = "zoom_out"
+can_press_hotkey_while_window_open = true
 
 [node name="ZoomIn" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -505,6 +552,8 @@ layout_mode = 2
 focus_mode = 0
 scale_factor = 1.25
 hint_text = "Zoom in"
+input_string = "zoom_in"
+can_press_hotkey_while_window_open = true
 
 [node name="Speed" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -515,6 +564,8 @@ texture_normal = ExtResource("8_su88h")
 texture_pressed = ExtResource("9_f8a1n")
 scale_factor = 1.25
 hint_text = "Speed"
+input_string = "speed"
+can_press_hotkey_while_window_open = true
 
 [node name="Left" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -524,6 +575,8 @@ texture_normal = ExtResource("19_pmx4y")
 texture_pressed = ExtResource("20_x0anm")
 scale_factor = 1.3
 hint_text = "Left"
+input_string = "left"
+can_press_hotkey_while_window_open = true
 
 [node name="Pause" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -533,6 +586,7 @@ texture_normal = ExtResource("16_3jflc")
 texture_pressed = ExtResource("16_bvot0")
 scale_factor = 1.25
 hint_text = "Pause"
+can_press_hotkey_while_window_open = false
 
 [node name="Play" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 visible = false
@@ -543,6 +597,7 @@ texture_normal = ExtResource("15_b3xgh")
 texture_pressed = ExtResource("17_g3uff")
 scale_factor = 1.25
 hint_text = "Play"
+can_press_hotkey_while_window_open = false
 
 [node name="Right" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -552,6 +607,8 @@ texture_normal = ExtResource("20_ko1fi")
 texture_pressed = ExtResource("22_l5k43")
 scale_factor = 1.3
 hint_text = "Right"
+input_string = "right"
+can_press_hotkey_while_window_open = true
 
 [node name="Background" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -561,16 +618,20 @@ texture_normal = ExtResource("11_erwg4")
 texture_pressed = ExtResource("12_7cwob")
 scale_factor = 1.15
 hint_text = "Background"
+input_string = "background"
+can_press_hotkey_while_window_open = true
 
-[node name="Palette" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
-visible = false
+[node name="Grayscale" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("32_y7ny2")
-texture_pressed = ExtResource("31_q1p8s")
-scale_factor = 1.25
-hint_text = "Palette"
+toggle_mode = true
+texture_normal = ExtResource("26_81iyw")
+texture_pressed = ExtResource("27_pw4sk")
+scale_factor = 1.2
+hint_text = "Grayscale"
+input_string = "grayscale"
+can_press_hotkey_while_window_open = true
 
 [node name="Hide" parent="UI" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -584,6 +645,8 @@ texture_normal = ExtResource("28_oeveo")
 texture_pressed = ExtResource("28_1pi4l")
 scale_factor = 1.275
 hint_text = "Hide"
+input_string = "hide"
+can_press_hotkey_while_window_open = false
 
 [node name="Texts" type="Control" parent="UI"]
 layout_mode = 3
@@ -758,7 +821,37 @@ focus_mode = 0
 toggle_mode = true
 texture_normal = ExtResource("48_haqt8")
 texture_pressed = ExtResource("49_tc78t")
+scale_factor = 1.2
 hint_text = "Offset"
+input_string = "offset"
+can_press_hotkey_while_window_open = true
+
+[node name="GIF" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
+visible = false
+custom_minimum_size = Vector2(16, 19)
+offset_left = 139.0
+offset_top = 40.0
+offset_right = 158.0
+offset_bottom = 62.0
+focus_mode = 0
+texture_normal = ExtResource("56_4k7gp")
+texture_pressed = ExtResource("57_6cd4w")
+hint_text = "Create GIF"
+can_press_hotkey_while_window_open = false
+
+[node name="Palette" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+offset_left = 139.0
+offset_top = 41.0
+offset_right = 155.0
+offset_bottom = 60.0
+focus_mode = 0
+texture_normal = ExtResource("32_y7ny2")
+texture_pressed = ExtResource("31_q1p8s")
+scale_factor = 1.25
+hint_text = "Palette"
+input_string = "palette"
+can_press_hotkey_while_window_open = true
 
 [node name="Shader" type="ColorRect" parent="UI"]
 material = ExtResource("39_shh2j")
@@ -769,6 +862,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.533333, 0.533333, 0.533333, 1)
+metadata/_edit_lock_ = true
+
+[node name="GrayShader" type="ColorRect" parent="UI"]
+visible = false
+material = ExtResource("19_3vwnm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.533333, 0.533333, 0.533333, 1)
+metadata/_edit_lock_ = true
 
 [node name="FileListener" type="Timer" parent="."]
 wait_time = 0.25
@@ -783,8 +889,8 @@ autostart = true
 [connection signal="pressed" from="UI/Top/Shadow" to="." method="_on_shadow_pressed"]
 [connection signal="toggled" from="UI/Top/Outline" to="." method="_on_outline_toggled"]
 [connection signal="toggled" from="UI/Top/Pixelate" to="." method="_on_pixelate_toggled"]
-[connection signal="toggled" from="UI/Top/AlwaysTop" to="." method="_on_always_top_toggled"]
 [connection signal="pressed" from="UI/Top/Expand" to="." method="_on_expand_pressed"]
+[connection signal="toggled" from="UI/Top/AlwaysTop" to="." method="_on_always_top_toggled"]
 [connection signal="toggled" from="UI/Top/Listen" to="." method="_on_listen_toggled"]
 [connection signal="pressed" from="UI/Bot/ZoomOut" to="." method="_on_zoom_out_pressed"]
 [connection signal="pressed" from="UI/Bot/ZoomIn" to="." method="_on_zoom_in_pressed"]
@@ -794,10 +900,11 @@ autostart = true
 [connection signal="pressed" from="UI/Bot/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Bot/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="UI/Bot/Background" to="." method="_on_bg_button_pressed"]
-[connection signal="pressed" from="UI/Bot/Palette" to="." method="_on_palette_pressed"]
+[connection signal="toggled" from="UI/Bot/Grayscale" to="." method="_on_grayscale_toggled"]
 [connection signal="toggled" from="UI/Hide" to="." method="_on_hide_toggled"]
 [connection signal="pressed" from="UI/Dimensions/MouseBlock" to="." method="_on_mouse_block_pressed"]
 [connection signal="value_changed" from="UI/Dimensions/Width" to="." method="_on_width_value_changed"]
 [connection signal="pressed" from="UI/Dimensions/Confirm" to="." method="_on_confirm_pressed"]
 [connection signal="toggled" from="UI/Dimensions/Offset" to="." method="_on_offset_toggled"]
+[connection signal="pressed" from="UI/Dimensions/Palette" to="." method="_on_palette_pressed"]
 [connection signal="timeout" from="FileListener" to="." method="_on_file_listener_timeout"]

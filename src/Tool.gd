@@ -13,6 +13,8 @@ var ROTATION_SPEED = 0.5
 @export var outline_shader = Resource
 @export var shadow_shader = Resource
 @export var palette_shader = Resource
+@export var bg_palette_shader = Resource
+@export var grayscale_shader = Resource
 
 var bg_index = 0
 var palette_index = 0
@@ -28,6 +30,7 @@ func _ready():
 	render_initial_stack()
 	render_background()
 	render_palette()
+	render_outline()
 	get_window().files_dropped.connect(_on_Window_files_dropped)
 
 func show_hide_initial_elements():
@@ -40,6 +43,7 @@ func show_hide_initial_elements():
 func setup_default_button_presses():
 	$UI/Top/AlwaysTop.button_pressed = true
 	$UI/Top/Listen.button_pressed = true
+	$UI/Bot/Speed.button_pressed = true
 
 func hide_title():
 	if $TitleFadeTimer.is_stopped():
@@ -48,17 +52,9 @@ func hide_title():
 
 func _process(delta):
 	handle_rotation(delta)
-	if Input.is_action_just_pressed("zoom_in"):
-		_on_zoom_in_pressed()
-	if Input.is_action_just_pressed("zoom_out"):
-		_on_zoom_out_pressed()
 	if Input.is_action_just_pressed("screenshot") and OS.is_debug_build():
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png("C:\\Users\\jonto\\Desk$UI/Top\\Game_Screenshot_%s.png" % str(randi() % 1000))
-	if Input.is_action_just_pressed("left"):
-		_on_left_pressed()
-	if Input.is_action_just_pressed("right"):
-		_on_right_pressed()
 	if Input.is_action_just_pressed("pause_play"):
 		if is_paused:
 			is_paused = false
@@ -149,6 +145,12 @@ func render_stack():
 	render_shadows()
 
 func _on_Window_files_dropped(files):
+	if $UI/Hide.button_pressed:
+		$UI/Hide.button_pressed = false
+		$UI/Hide._on_button_up()
+	if $UI/Help.button_pressed:
+		$UI/Help.button_pressed = false
+		$UI/Help._on_button_up()
 	current_file = files[0]
 	FileAccess.open(current_file, FileAccess.READ)
 	last_modified_time = FileAccess.get_modified_time(current_file)
@@ -163,6 +165,7 @@ func show_dimensions_window():
 	$DimensionsBg.show()
 	$UI/Dimensions.show()
 	$UI/Texts/Title.show()
+#	$UI/Dimensions/GIF.show()
 	$UI/Texts/Title.text = "Specify width and height"
 	$UI/Texts/TitleShadow.show()
 	$UI/Texts/TitleShadow.text = "Specify width and height"
@@ -246,13 +249,17 @@ func render_background():
 	$Background/SubViewport/Pattern.texture = current_background.texture
 	$Background/SubViewport/Camera2D.enabled = current_background.zoom_enabled
 	$Stacked/PixelatedSprite/View/Shadow.color = current_background.shadow_color
-	$Stacked/Shadow.color = current_background.shadow_color
-	shadow_shader.set_shader_parameter("color", current_background.shadow_color)
-	if $UI/Top/Outline.button_pressed:
-		outline_shader.set_shader_parameter("color", current_background.enabled_outline_color)
+	if $UI/Bot/Grayscale.button_pressed:
+		var shadow_color = to_grayscale(current_background.shadow_color)
+		$Stacked/Shadow.color = shadow_color
+		$Stacked/PixelatedSprite/View/Shadow.color = shadow_color
+		shadow_shader.set_shader_parameter("color", shadow_color)
 	else:
-		outline_shader.set_shader_parameter("color", current_background.disabled_outline_color)
+		$Stacked/Shadow.color = current_background.shadow_color
+		$Stacked/PixelatedSprite/View/Shadow.color = current_background.shadow_color
+		shadow_shader.set_shader_parameter("color", current_background.shadow_color)
 	render_shadows()
+	render_outline()
 
 func _on_pause_pressed():
 	is_paused = true
@@ -338,8 +345,15 @@ func _on_hide_toggled(button_pressed):
 		$UI/Top.show()
 		$UI/Bot.show()
 
+func render_outline():
+	var current_background = backgrounds[bg_index]
+	var color = current_background.enabled_outline_color if $UI/Top/Outline.button_pressed else current_background.disabled_outline_color
+	
+	color = to_grayscale(color) if $UI/Bot/Grayscale.button_pressed else color
+	outline_shader.set_shader_parameter("color", color)
+
 func _on_outline_toggled(button_pressed):
-	render_background()
+	render_outline()
 
 func _on_file_listener_timeout():
 	if current_file != "" and $UI/Top/Listen.button_pressed:
@@ -405,6 +419,12 @@ func _on_offset_toggled(button_pressed):
 		stack.y_offset = offset
 	render_stack()
 
+func is_any_window_open():
+	return $UI/Dimensions.visible or $UI/Hide.button_pressed or $UI/Instructions.visible
+
+func is_dimensions_open():
+	return $UI/Dimensions.visible
+
 func _on_help_toggled(button_pressed):
 	if button_pressed:
 		$Stacked.hide()
@@ -433,6 +453,10 @@ func render_palette():
 	palette_shader.set_shader_parameter("next_light_gray_color", current_palette.light_gray)
 	palette_shader.set_shader_parameter("next_medium_gray_color", current_palette.dark_gray)
 	palette_shader.set_shader_parameter("next_black_color", current_palette.black)
+	bg_palette_shader.set_shader_parameter("next_white_color", current_palette.white.darkened(current_palette.darkened_amt))
+	bg_palette_shader.set_shader_parameter("next_light_gray_color", current_palette.light_gray.darkened(current_palette.darkened_amt))
+	bg_palette_shader.set_shader_parameter("next_medium_gray_color", current_palette.dark_gray.darkened(current_palette.darkened_amt))
+	bg_palette_shader.set_shader_parameter("next_black_color", current_palette.black.darkened(current_palette.darkened_amt))
 
 func render_shadows():
 	hide_all_shadows()
@@ -465,3 +489,25 @@ func _on_palette_pressed():
 	if palette_index >= len(palettes):
 		palette_index = 0
 	render_palette()
+
+func to_grayscale(color):
+	var gray = (color.r + color.g + color.b) / 3.0
+	if is_equal_approx(gray, 0.0):
+		gray = 0.01
+	elif is_equal_approx(gray, 1.0):
+		gray = 0.99
+	return Color(gray, gray, gray, color.a)
+
+func _on_grayscale_toggled(button_pressed):
+	if button_pressed:
+		var shadow_color = to_grayscale(backgrounds[bg_index].shadow_color)
+		$Stacked/Shadow.color = shadow_color
+		$Stacked/PixelatedSprite/View/Shadow.color = shadow_color
+		shadow_shader.set_shader_parameter("color", shadow_color)
+		$Stacked/StackedSprite.shader = grayscale_shader
+		$Stacked/PixelatedSprite/View/StackedSprite.shader = grayscale_shader
+		render_outline()
+	else:
+		$Stacked/StackedSprite.shader = null
+		$Stacked/PixelatedSprite/View/StackedSprite.shader = null
+		render_background()
