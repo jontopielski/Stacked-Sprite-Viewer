@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cnhaoy78y3wmi"]
+[gd_scene load_steps=78 format=3 uid="uid://cnhaoy78y3wmi"]
 
 [ext_resource type="Script" path="res://src/Tool.gd" id="1_8r6f8"]
 [ext_resource type="Resource" uid="uid://bkxqikt6nr0ru" path="res://resources/backgrounds/Dotted.tres" id="2_6sniu"]
@@ -39,6 +39,7 @@
 [ext_resource type="Material" uid="uid://detfpukqkje7y" path="res://src/Grayscale.tres" id="19_3vwnm"]
 [ext_resource type="Texture2D" uid="uid://dbhx65jq0hptm" path="res://sprites/buttons/LeftArrowNormal.png" id="19_pmx4y"]
 [ext_resource type="Texture2D" uid="uid://dnge4yskmbdo" path="res://sprites/buttons/ExpandPressed.png" id="19_rim30"]
+[ext_resource type="Material" uid="uid://b6flyjl26x5ie" path="res://src/OffWhite.tres" id="20_j8ur7"]
 [ext_resource type="Texture2D" uid="uid://ivnbo1g7g6i5" path="res://sprites/buttons/RightArrowNormal.png" id="20_ko1fi"]
 [ext_resource type="Texture2D" uid="uid://b26x82oqkkfhe" path="res://sprites/buttons/LeftArrowPressed.png" id="20_x0anm"]
 [ext_resource type="Texture2D" uid="uid://bjd3l7u2b73i5" path="res://sprites/buttons/RightArrowPressed.png" id="22_l5k43"]
@@ -69,6 +70,8 @@
 [ext_resource type="Texture2D" uid="uid://bob3k1iymrw50" path="res://sprites/buttons/GrayscalePressed.png" id="55_3pjfy"]
 [ext_resource type="Texture2D" uid="uid://1alyl5ya4ucb" path="res://sprites/buttons/GIFNormal.png" id="56_4k7gp"]
 [ext_resource type="Texture2D" uid="uid://q1ow4ixbol6k" path="res://sprites/buttons/GIFPressed.png" id="57_6cd4w"]
+[ext_resource type="Texture2D" uid="uid://dd0bemkaan8v6" path="res://sprites/buttons/HotkeyPressed.png" id="69_wpenp"]
+[ext_resource type="Texture2D" uid="uid://dykj7n6d7oiqq" path="res://sprites/buttons/HotkeyNormal.png" id="70_g527t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w81jn"]
 bg_color = Color(0.509804, 0.509804, 0.509804, 1)
@@ -117,6 +120,7 @@ shadow_shader = ExtResource("12_4h6w5")
 palette_shader = ExtResource("39_shh2j")
 bg_palette_shader = ExtResource("15_hldfg")
 grayscale_shader = ExtResource("19_3vwnm")
+off_white_shader = ExtResource("20_j8ur7")
 
 [node name="Background" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -249,8 +253,8 @@ position = Vector2(84, 82)
 shader = ExtResource("4_kr5a8")
 
 [node name="StackedSprite" parent="Stacked" instance=ExtResource("2_7qida")]
-modulate = Color(0.992157, 0.992157, 0.992157, 1)
 position = Vector2(83, 83)
+shader = ExtResource("20_j8ur7")
 
 [node name="PixelatedSprite" type="SubViewportContainer" parent="Stacked"]
 visible = false
@@ -324,8 +328,8 @@ position = Vector2(8, 16)
 shader = ExtResource("4_kr5a8")
 
 [node name="StackedSprite" parent="Stacked/PixelatedSprite/View" instance=ExtResource("2_7qida")]
-modulate = Color(0.992157, 0.992157, 0.992157, 1)
 position = Vector2(8, 16)
+shader = ExtResource("20_j8ur7")
 
 [node name="GrayShader" type="ColorRect" parent="."]
 visible = false
@@ -429,7 +433,6 @@ texture_normal = ExtResource("4_gtfvn")
 texture_pressed = ExtResource("5_xrcid")
 scale_factor = 1.25
 hint_text = "Help"
-can_press_hotkey_while_window_open = false
 
 [node name="Top" type="HBoxContainer" parent="UI"]
 anchors_preset = 10
@@ -450,7 +453,7 @@ texture_pressed = ExtResource("30_u3o7k")
 scale_factor = 1.2
 hint_text = "Dimensions"
 input_string = "dimensions"
-can_press_hotkey_while_window_open = false
+hotkey_hint = "M"
 
 [node name="Shadow" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -462,6 +465,7 @@ scale_factor = 1.2
 hint_text = "Shadow"
 input_string = "shadow"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "O"
 
 [node name="Outline" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -474,6 +478,7 @@ scale_factor = 1.2
 hint_text = "Outline"
 input_string = "outline"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "L"
 
 [node name="Pixelate" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -486,6 +491,7 @@ scale_factor = 1.225
 hint_text = "Pixelate"
 input_string = "pixelate"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "X"
 
 [node name="Expand" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -497,6 +503,7 @@ scale_factor = 1.175
 hint_text = "Expand"
 input_string = "expand"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "E"
 
 [node name="AlwaysTop" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -508,7 +515,7 @@ texture_pressed = ExtResource("14_e5ewn")
 scale_factor = 1.2
 hint_text = "Always on top"
 input_string = "always_top"
-can_press_hotkey_while_window_open = false
+hotkey_hint = "T"
 
 [node name="Listen" parent="UI/Top" instance=ExtResource("3_n5l5n")]
 visible = false
@@ -520,7 +527,6 @@ texture_normal = ExtResource("8_r3327")
 texture_pressed = ExtResource("9_7vixo")
 scale_factor = 1.2
 hint_text = "Listen for file changes"
-can_press_hotkey_while_window_open = false
 
 [node name="Bot" type="HBoxContainer" parent="UI"]
 anchors_preset = 12
@@ -545,6 +551,7 @@ scale_factor = 1.25
 hint_text = "Zoom out"
 input_string = "zoom_out"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "-"
 
 [node name="ZoomIn" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -554,18 +561,7 @@ scale_factor = 1.25
 hint_text = "Zoom in"
 input_string = "zoom_in"
 can_press_hotkey_while_window_open = true
-
-[node name="Speed" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
-custom_minimum_size = Vector2(16, 19)
-layout_mode = 2
-focus_mode = 0
-toggle_mode = true
-texture_normal = ExtResource("8_su88h")
-texture_pressed = ExtResource("9_f8a1n")
-scale_factor = 1.25
-hint_text = "Speed"
-input_string = "speed"
-can_press_hotkey_while_window_open = true
+hotkey_hint = "="
 
 [node name="Left" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -577,6 +573,7 @@ scale_factor = 1.3
 hint_text = "Left"
 input_string = "left"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "A"
 
 [node name="Pause" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -586,7 +583,7 @@ texture_normal = ExtResource("16_3jflc")
 texture_pressed = ExtResource("16_bvot0")
 scale_factor = 1.25
 hint_text = "Pause"
-can_press_hotkey_while_window_open = false
+hotkey_hint = "SPACE"
 
 [node name="Play" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 visible = false
@@ -597,7 +594,7 @@ texture_normal = ExtResource("15_b3xgh")
 texture_pressed = ExtResource("17_g3uff")
 scale_factor = 1.25
 hint_text = "Play"
-can_press_hotkey_while_window_open = false
+hotkey_hint = "SPACE"
 
 [node name="Right" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -609,6 +606,7 @@ scale_factor = 1.3
 hint_text = "Right"
 input_string = "right"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "D"
 
 [node name="Background" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -620,6 +618,19 @@ scale_factor = 1.15
 hint_text = "Background"
 input_string = "background"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "B"
+
+[node name="Palette" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("32_y7ny2")
+texture_pressed = ExtResource("31_q1p8s")
+scale_factor = 1.25
+hint_text = "Palette"
+input_string = "palette"
+can_press_hotkey_while_window_open = true
+hotkey_hint = "P"
 
 [node name="Grayscale" parent="UI/Bot" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -632,6 +643,7 @@ scale_factor = 1.2
 hint_text = "Grayscale"
 input_string = "grayscale"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "G"
 
 [node name="Hide" parent="UI" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
@@ -646,7 +658,7 @@ texture_pressed = ExtResource("28_1pi4l")
 scale_factor = 1.275
 hint_text = "Hide"
 input_string = "hide"
-can_press_hotkey_while_window_open = false
+hotkey_hint = "H"
 
 [node name="Texts" type="Control" parent="UI"]
 layout_mode = 3
@@ -825,6 +837,7 @@ scale_factor = 1.2
 hint_text = "Offset"
 input_string = "offset"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "F"
 
 [node name="GIF" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
 visible = false
@@ -837,21 +850,38 @@ focus_mode = 0
 texture_normal = ExtResource("56_4k7gp")
 texture_pressed = ExtResource("57_6cd4w")
 hint_text = "Create GIF"
-can_press_hotkey_while_window_open = false
 
-[node name="Palette" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
+[node name="Hotkey" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
-offset_left = 139.0
+offset_left = 117.0
 offset_top = 41.0
-offset_right = 155.0
+offset_right = 133.0
 offset_bottom = 60.0
 focus_mode = 0
-texture_normal = ExtResource("32_y7ny2")
-texture_pressed = ExtResource("31_q1p8s")
+toggle_mode = true
+texture_normal = ExtResource("70_g527t")
+texture_pressed = ExtResource("69_wpenp")
 scale_factor = 1.25
-hint_text = "Palette"
-input_string = "palette"
+hint_text = "Hotkey hints"
+input_string = "hotkey"
 can_press_hotkey_while_window_open = true
+hotkey_hint = "K"
+
+[node name="Speed" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+offset_left = 137.0
+offset_top = 41.0
+offset_right = 153.0
+offset_bottom = 60.0
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("8_su88h")
+texture_pressed = ExtResource("9_f8a1n")
+scale_factor = 1.25
+hint_text = "Speed"
+input_string = "speed"
+can_press_hotkey_while_window_open = true
+hotkey_hint = "Z"
 
 [node name="Shader" type="ColorRect" parent="UI"]
 material = ExtResource("39_shh2j")
@@ -894,17 +924,18 @@ autostart = true
 [connection signal="toggled" from="UI/Top/Listen" to="." method="_on_listen_toggled"]
 [connection signal="pressed" from="UI/Bot/ZoomOut" to="." method="_on_zoom_out_pressed"]
 [connection signal="pressed" from="UI/Bot/ZoomIn" to="." method="_on_zoom_in_pressed"]
-[connection signal="toggled" from="UI/Bot/Speed" to="." method="_on_speed_toggled"]
 [connection signal="pressed" from="UI/Bot/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="UI/Bot/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="UI/Bot/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Bot/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="UI/Bot/Background" to="." method="_on_bg_button_pressed"]
+[connection signal="pressed" from="UI/Bot/Palette" to="." method="_on_palette_pressed"]
 [connection signal="toggled" from="UI/Bot/Grayscale" to="." method="_on_grayscale_toggled"]
 [connection signal="toggled" from="UI/Hide" to="." method="_on_hide_toggled"]
 [connection signal="pressed" from="UI/Dimensions/MouseBlock" to="." method="_on_mouse_block_pressed"]
 [connection signal="value_changed" from="UI/Dimensions/Width" to="." method="_on_width_value_changed"]
 [connection signal="pressed" from="UI/Dimensions/Confirm" to="." method="_on_confirm_pressed"]
 [connection signal="toggled" from="UI/Dimensions/Offset" to="." method="_on_offset_toggled"]
-[connection signal="pressed" from="UI/Dimensions/Palette" to="." method="_on_palette_pressed"]
+[connection signal="toggled" from="UI/Dimensions/Hotkey" to="." method="_on_hotkey_toggled"]
+[connection signal="toggled" from="UI/Dimensions/Speed" to="." method="_on_speed_toggled"]
 [connection signal="timeout" from="FileListener" to="." method="_on_file_listener_timeout"]

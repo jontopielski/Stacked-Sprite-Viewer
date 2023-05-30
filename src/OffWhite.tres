@@ -1,0 +1,48 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b6flyjl26x5ie"]
+
+[sub_resource type="Shader" id="Shader_ri348"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 base_white_color  : source_color = vec4(0.0);
+uniform vec4 base_black_color  : source_color = vec4(0.0);
+uniform vec4 base_light_gray_color  : source_color = vec4(0.0);
+uniform vec4 base_medium_gray_color  : source_color = vec4(0.0);
+
+uniform vec4 next_white_color  : source_color = vec4(0.0);
+uniform vec4 next_black_color  : source_color = vec4(0.0);
+uniform vec4 next_light_gray_color  : source_color = vec4(0.0);
+uniform vec4 next_medium_gray_color  : source_color = vec4(0.0);
+
+bool matches_color(vec4 color_one, vec4 color_two) {
+	return (abs(color_one.r - color_two.r) < 0.001 && abs(color_one.g - color_two.g) < 0.001 && abs(color_one.b - color_two.b) < 0.001 && abs(color_one.a - color_two.a) < 0.001);
+}
+
+void fragment() {
+	vec4 current_color = texture(TEXTURE, UV);
+	if (matches_color(current_color, base_white_color)) {
+		COLOR = next_white_color;
+	} else if (matches_color(current_color, base_black_color)) {
+		COLOR = next_black_color;
+	} else if (matches_color(current_color, base_light_gray_color)) {
+		COLOR = next_light_gray_color;
+	} else if (matches_color(current_color, base_medium_gray_color)) {
+		COLOR = next_medium_gray_color;
+	} else {
+		COLOR = current_color;
+	}
+}
+
+"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource("Shader_ri348")
+shader_parameter/base_white_color = Color(1, 1, 1, 1)
+shader_parameter/base_black_color = Color(0, 0, 0, 1)
+shader_parameter/base_light_gray_color = Color(0.764706, 0.764706, 0.764706, 1)
+shader_parameter/base_medium_gray_color = Color(0.509804, 0.509804, 0.509804, 1)
+shader_parameter/next_white_color = Color(0.988235, 0.992157, 0.996078, 1)
+shader_parameter/next_black_color = Color(0.00392157, 0.00784314, 0.0117647, 1)
+shader_parameter/next_light_gray_color = Color(0.756863, 0.760784, 0.764706, 1)
+shader_parameter/next_medium_gray_color = Color(0.501961, 0.505882, 0.509804, 1)

@@ -15,6 +15,7 @@ var ROTATION_SPEED = 0.5
 @export var palette_shader = Resource
 @export var bg_palette_shader = Resource
 @export var grayscale_shader = Resource
+@export var off_white_shader = Resource
 
 var bg_index = 0
 var palette_index = 0
@@ -43,29 +44,46 @@ func show_hide_initial_elements():
 func setup_default_button_presses():
 	$UI/Top/AlwaysTop.button_pressed = true
 	$UI/Top/Listen.button_pressed = true
-	$UI/Bot/Speed.button_pressed = true
+	$UI/Dimensions/Speed.button_pressed = true
 
 func hide_title():
 	if $TitleFadeTimer.is_stopped():
 		$UI/Texts/Title.hide()
 		$UI/Texts/TitleShadow.hide()
 
+func is_hotkey_hints_enabled():
+	return $UI/Dimensions/Hotkey.button_pressed
+
 func _process(delta):
 	handle_rotation(delta)
 	if Input.is_action_just_pressed("screenshot") and OS.is_debug_build():
 		await RenderingServer.frame_post_draw
-		get_viewport().get_texture().get_image().save_png("C:\\Users\\jonto\\Desk$UI/Top\\Game_Screenshot_%s.png" % str(randi() % 1000))
+		get_viewport().get_texture().get_image().save_png("C:\\Users\\jonto\\Desktop\\Game_Screenshot_%s.png" % str(randi() % 1000))
 	if Input.is_action_just_pressed("pause_play"):
+		if is_paused:
+			$UI/Bot/Play._on_button_down()
+		else:
+			$UI/Bot/Pause._on_button_down()
+	if Input.is_action_just_released("pause_play"):
 		if is_paused:
 			is_paused = false
 			$UI/Bot/Pause.show()
 			$UI/Bot/Pause._on_mouse_exited()
 			$UI/Bot/Play.hide()
+			$UI/Bot/Play._on_button_up()
 		else:
 			is_paused = true
 			$UI/Bot/Play.show()
 			$UI/Bot/Play._on_mouse_exited()
 			$UI/Bot/Pause.hide()
+			$UI/Bot/Pause._on_button_up()
+	if Input.is_action_just_pressed("ui_cancel"):
+		if $UI/Dimensions.visible:
+			_on_confirm_pressed()
+		elif $UI/Instructions.visible and $UI/Help.button_pressed:
+			$UI/Help.button_pressed = false
+		elif $UI/Hide.button_pressed:
+			$UI/Hide.button_pressed = false
 
 func _unhandled_input(event):
 	if event.is_pressed():
@@ -508,6 +526,9 @@ func _on_grayscale_toggled(button_pressed):
 		$Stacked/PixelatedSprite/View/StackedSprite.shader = grayscale_shader
 		render_outline()
 	else:
-		$Stacked/StackedSprite.shader = null
-		$Stacked/PixelatedSprite/View/StackedSprite.shader = null
+		$Stacked/StackedSprite.shader = off_white_shader
+		$Stacked/PixelatedSprite/View/StackedSprite.shader = off_white_shader
 		render_background()
+
+func _on_hotkey_toggled(button_pressed):
+	pass # Replace with function body.

@@ -61,7 +61,6 @@ texture_normal = ExtResource("2_go6hq")
 texture_pressed = ExtResource("3_odyr6")
 scale_factor = 1.0
 toggle_color = Color(0.764706, 0.764706, 0.764706, 1)
-can_press_hotkey_while_window_open = null
 
 [node name="StackedSprite" parent="." instance=ExtResource("1_66gad")]
 position = Vector2(8, 11)

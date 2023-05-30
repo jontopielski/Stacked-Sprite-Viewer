@@ -15,7 +15,11 @@ void fragment() {
 	float gray = (color.r + color.g + color.b) / 3.0;
 	if (is_equal_approx(gray, 0.0)) {
 		gray = 0.01;
-	} else if (is_equal_approx(gray, 1.0)) {
+	} else if (is_equal_approx(gray, 0.51)) {
+		gray = 0.52;
+	} else if (is_equal_approx(gray, 0.7647)) {
+		gray = 0.75;
+	}  else if (is_equal_approx(gray, 1.0)) {
 		gray = 0.99;
 	}
 	COLOR.rgb = vec3(gray);

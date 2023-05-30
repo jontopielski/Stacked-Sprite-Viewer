@@ -21,6 +21,8 @@ extends Button
 
 @export var can_press_hotkey_while_window_open : bool = false
 
+@export var hotkey_hint : String = ""
+
 func render_sprites():
 	if !has_node("StackedSprite"):
 		return
@@ -63,7 +65,13 @@ func _process(delta):
 func _on_mouse_entered():
 	$StackedSprite.scale = Vector2(scale_factor, scale_factor)
 	$AnimationPlayer.play("sway")
-	get_tree().call_group("Tool", "set_terminal_text", hint_text)
+	get_tree().call_group("Tool", "set_terminal_text", hint_text + get_hotkey_text())
+
+func get_hotkey_text():
+	var hint = ""
+	if get_tree().current_scene.is_hotkey_hints_enabled() and !hotkey_hint.is_empty():
+		hint = " (" + hotkey_hint + ")"
+	return hint
 
 func _on_mouse_exited():
 	$StackedSprite.scale = Vector2(1, 1)
