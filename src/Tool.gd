@@ -201,6 +201,7 @@ func load_image_at_current_file(is_initial_load = false):
 	final_texture = ImageTexture.create_from_image(placeholder_image)
 	if !final_texture:
 		return
+	var old_frame_width = $Stacked/StackedSprite.frame_width
 	$Stacked/StackedSprite.texture = final_texture
 	$Stacked/StackedShadow.texture = final_texture
 	$Stacked/PixelatedSprite/View/StackedShadow.texture = final_texture
@@ -212,6 +213,7 @@ func load_image_at_current_file(is_initial_load = false):
 	if is_initial_load:
 		render_initial_stack()
 	else:
+		$Stacked/StackedSprite.frame_width = old_frame_width
 		render_stack()
 	if $UI/Texts/Title.visible:
 		$UI/Texts/Title.hide()
@@ -427,8 +429,7 @@ func _on_speed_toggled(button_pressed):
 	else:
 		ROTATION_SPEED = 0.5
 
-func _on_offset_toggled(button_pressed):
-	var offset = 2 if button_pressed else 1
+func update_offsets(offset):
 	$Stacked/StackedSprite.y_offset = offset
 	for stack in $Stacked/StackOutlines.get_children():
 		stack.y_offset = offset
@@ -436,6 +437,14 @@ func _on_offset_toggled(button_pressed):
 	for stack in $Stacked/PixelatedSprite/View/StackOutlines.get_children():
 		stack.y_offset = offset
 	render_stack()
+
+func _on_decrease_offset_pressed():
+	var offset = $Stacked/StackedSprite.y_offset - 1
+	update_offsets(offset)
+
+func _on_increase_offset_pressed():
+	var offset = $Stacked/StackedSprite.y_offset + 1
+	update_offsets(offset)
 
 func is_any_window_open():
 	return $UI/Dimensions.visible or $UI/Hide.button_pressed or $UI/Instructions.visible
@@ -532,3 +541,4 @@ func _on_grayscale_toggled(button_pressed):
 
 func _on_hotkey_toggled(button_pressed):
 	pass # Replace with function body.
+

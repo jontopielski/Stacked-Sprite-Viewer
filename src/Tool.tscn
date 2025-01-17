@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cnhaoy78y3wmi"]
+[gd_scene load_steps=80 format=3 uid="uid://cnhaoy78y3wmi"]
 
 [ext_resource type="Script" path="res://src/Tool.gd" id="1_8r6f8"]
 [ext_resource type="Resource" uid="uid://bkxqikt6nr0ru" path="res://resources/backgrounds/Dotted.tres" id="2_6sniu"]
@@ -70,6 +70,8 @@
 [ext_resource type="Texture2D" uid="uid://bob3k1iymrw50" path="res://sprites/buttons/GrayscalePressed.png" id="55_3pjfy"]
 [ext_resource type="Texture2D" uid="uid://1alyl5ya4ucb" path="res://sprites/buttons/GIFNormal.png" id="56_4k7gp"]
 [ext_resource type="Texture2D" uid="uid://q1ow4ixbol6k" path="res://sprites/buttons/GIFPressed.png" id="57_6cd4w"]
+[ext_resource type="Texture2D" uid="uid://dks3ppj3s7iap" path="res://sprites/buttons/OffsetFilledNormal.png" id="65_wve8w"]
+[ext_resource type="Texture2D" uid="uid://cohlwiglcovk2" path="res://sprites/buttons/OffsetFilledPressed.png" id="66_2ohah"]
 [ext_resource type="Texture2D" uid="uid://dd0bemkaan8v6" path="res://sprites/buttons/HotkeyPressed.png" id="69_wpenp"]
 [ext_resource type="Texture2D" uid="uid://dykj7n6d7oiqq" path="res://sprites/buttons/HotkeyNormal.png" id="70_g527t"]
 
@@ -763,7 +765,6 @@ vertical_alignment = 2
 autowrap_mode = 3
 
 [node name="Dimensions" type="Node2D" parent="UI"]
-visible = false
 
 [node name="MouseBlock" type="Button" parent="UI/Dimensions"]
 offset_right = 160.0
@@ -823,21 +824,35 @@ texture_normal = ExtResource("43_dsbsd")
 texture_pressed = ExtResource("44_52itq")
 texture_hover = ExtResource("45_6h7ny")
 
-[node name="Offset" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
+[node name="DecreaseOffset" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
 custom_minimum_size = Vector2(16, 19)
 offset_left = 4.0
 offset_top = 41.0
 offset_right = 20.0
 offset_bottom = 60.0
 focus_mode = 0
-toggle_mode = true
+texture_normal = ExtResource("65_wve8w")
+texture_pressed = ExtResource("66_2ohah")
+scale_factor = 1.2
+hint_text = "Decrease offset"
+input_string = "decrease_offset"
+can_press_hotkey_while_window_open = true
+hotkey_hint = "["
+
+[node name="IncreaseOffset" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
+custom_minimum_size = Vector2(16, 19)
+offset_left = 4.0
+offset_top = 65.0
+offset_right = 20.0
+offset_bottom = 84.0
+focus_mode = 0
 texture_normal = ExtResource("48_haqt8")
 texture_pressed = ExtResource("49_tc78t")
 scale_factor = 1.2
-hint_text = "Offset"
-input_string = "offset"
+hint_text = "Increase offset"
+input_string = "increase_offset"
 can_press_hotkey_while_window_open = true
-hotkey_hint = "F"
+hotkey_hint = "]"
 
 [node name="GIF" parent="UI/Dimensions" instance=ExtResource("3_n5l5n")]
 visible = false
@@ -935,7 +950,8 @@ autostart = true
 [connection signal="pressed" from="UI/Dimensions/MouseBlock" to="." method="_on_mouse_block_pressed"]
 [connection signal="value_changed" from="UI/Dimensions/Width" to="." method="_on_width_value_changed"]
 [connection signal="pressed" from="UI/Dimensions/Confirm" to="." method="_on_confirm_pressed"]
-[connection signal="toggled" from="UI/Dimensions/Offset" to="." method="_on_offset_toggled"]
+[connection signal="pressed" from="UI/Dimensions/DecreaseOffset" to="." method="_on_decrease_offset_pressed"]
+[connection signal="pressed" from="UI/Dimensions/IncreaseOffset" to="." method="_on_increase_offset_pressed"]
 [connection signal="toggled" from="UI/Dimensions/Hotkey" to="." method="_on_hotkey_toggled"]
 [connection signal="toggled" from="UI/Dimensions/Speed" to="." method="_on_speed_toggled"]
 [connection signal="timeout" from="FileListener" to="." method="_on_file_listener_timeout"]
